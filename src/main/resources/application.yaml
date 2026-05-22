@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: Student Management
+  config:
+    import: file:.env[.properties]
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
