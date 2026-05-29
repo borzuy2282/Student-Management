@@ -1,6 +1,7 @@
 package com.springboot.studentmanagement.service;
 
 import com.springboot.studentmanagement.dto.StudentDto;
+import com.springboot.studentmanagement.entity.Student;
 import com.springboot.studentmanagement.mapper.StudentMapper;
 import com.springboot.studentmanagement.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,10 @@ public class StudentService {
                 .stream()
                 .map(studentMapper::toDto)
                 .toList();
+    }
+
+    public void createStudent(StudentDto studentDto){
+        Student student = studentMapper.toEntity(studentDto);
+        studentRepository.save(student);
     }
 }
