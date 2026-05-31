@@ -70,4 +70,10 @@ public class StudentController {
         studentService.updateStudent(studentDto);
         return "redirect:/student/all";
     }
+
+    @GetMapping("{id}/delete")
+    public String deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+        return "redirect:/student/all";
+    }
 }

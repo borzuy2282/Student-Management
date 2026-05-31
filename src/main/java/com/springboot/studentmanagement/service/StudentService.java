@@ -40,4 +40,8 @@ public class StudentService {
         studentRepository.save(studentMapper.toEntity(studentDto));
 
     }
+
+    public void deleteStudent(Long id){
+        studentRepository.deleteById(id);
+    }
 }
