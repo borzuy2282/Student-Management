@@ -30,4 +30,14 @@ public class StudentService {
         Student student = studentMapper.toEntity(studentDto);
         studentRepository.save(student);
     }
+
+    public StudentDto getStudentById(Long id){
+        Student student = studentRepository.findById(id).get();
+        return studentMapper.toDto(student);
+    }
+
+    public void updateStudent(StudentDto studentDto){
+        studentRepository.save(studentMapper.toEntity(studentDto));
+
+    }
 }

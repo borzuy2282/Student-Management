@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -46,6 +47,27 @@ public class StudentController {
         }
 
         studentService.createStudent(studentDto);
+        return "redirect:/student/all";
+    }
+
+    @GetMapping("{id}/edit")
+    public String editStudent(@PathVariable Long id, Model model){
+        StudentDto studentDto = studentService.getStudentById(id);
+        model.addAttribute("student", studentDto);
+        return "edit_student";
+    }
+
+    @PostMapping("{id}/edit")
+    public String updateStudent(@PathVariable Long id,
+                                @Valid @ModelAttribute("student") StudentDto studentDto,
+                                BindingResult result,
+                                Model model){
+        if (result.hasErrors()){
+            model.addAttribute("student", studentDto);
+            return "edit_student";
+        }
+        studentDto.setId(id);
+        studentService.updateStudent(studentDto);
         return "redirect:/student/all";
     }
 }

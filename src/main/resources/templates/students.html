@@ -49,7 +49,9 @@
                 <td th:text="${student.name}"></td>
                 <td th:text="${student.surname}"></td>
                 <td th:text="${student.email}"></td>
-                <td></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/student/{id}/edit(id=${student.id})}">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>
