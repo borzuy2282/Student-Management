@@ -182,6 +182,4 @@ java -jar target/student-management-0.0.1-SNAPSHOT.jar
 
 Ensure `.env` is present in the working directory (or export the same variables in your environment).
 
-## License
 
-This project is for learning and side-project use. Add a license file if you plan to publish or share it publicly.
