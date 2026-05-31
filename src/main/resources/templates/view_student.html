@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-    xmlns:th="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head>
     <meta charset="UTF-8">
@@ -32,31 +32,19 @@
 <br><br><br><br>
 <div class="container">
     <div class="row">
-        <h1>List of Students</h1>
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Student details</h2>
+                </div>
+                <div class="card-body">
+                    <p>Name: <strong th:text="${student.name}"></strong></p>
+                    <p>Surname: <strong th:text="${student.surname}"></strong></p>
+                    <p>Email: <strong th:text="${student.email}"></strong></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    <table class="table table-stripe table-hover table-bordered">
-        <thead class="table-dark">
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="student : ${students}">
-                <td th:text="${student.name}"></td>
-                <td th:text="${student.surname}"></td>
-                <td th:text="${student.email}"></td>
-                <td>
-                    <a class="btn btn-primary" th:href="@{/student/{id}/edit(id=${student.id})}">Edit</a>
-                    <a class="btn btn-danger" th:href="@{/student/{id}/delete(id=${student.id})}">Delete</a>
-                    <a class="btn btn-info" th:href="@{/student/{id}/view(id=${student.id})}">View</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
 </body>
 </html>
